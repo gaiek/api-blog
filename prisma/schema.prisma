@@ -12,3 +12,29 @@ output = "../generated/prisma"
 datasource db {
   provider = "postgresql"
 }
+
+model Article {
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  published_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  article_tags ArticleTag[]
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+  name String @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  article_tags ArticleTag[]
+}
+
+model ArticleTag {
+  article_id Int
+  tag_id Int
+  article Article @relation(fields: [article_id], references: [id])
+  tag Tag @relation(fields: [tag_id], references: [id])
+
+  @@id([article_id, tag_id])
+}
