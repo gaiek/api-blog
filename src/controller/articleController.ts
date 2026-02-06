@@ -15,13 +15,13 @@ export class ArticleController {
 
     createArticle = async (req: Request, res: Response) => {
         try {
-            const { title, content } = req.body;
+            const { title, content, tagIds } = req.body;
 
             if (!title || !content) {
                 return res.status(400).json({ message: 'Title and content are required' });
             }
 
-            const newArticle = await this.articleService.createArticle(title, content);
+            const newArticle = await this.articleService.createArticle(title, content, tagIds);
             console.log('passei pelo controller -->', newArticle);
             res.status(201).json(newArticle);
         } catch (error: any) {
@@ -46,8 +46,8 @@ export class ArticleController {
     updateArticle = async (req: Request, res: Response) => {
         try {
             const { id } = req.params;
-            const { title, content } = req.body;
-            const updatedArticle = await this.articleService.updateArticle(Number(id), title, content);
+            const { title, content, tagIds } = req.body;
+            const updatedArticle = await this.articleService.updateArticle(Number(id), title, content, tagIds);
             res.status(200).json(updatedArticle);
         } catch (error) {
             res.status(500).json({ message: 'Internal Server Error' });
