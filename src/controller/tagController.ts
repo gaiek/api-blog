@@ -65,4 +65,14 @@ export class TagController {
             res.status(500).json({ message: 'Internal Server Error' });
         }
     }
+
+     getArticlesByTagId = async (req: Request, res: Response) => {
+        try {
+            const { tagId } = req.params;
+            const article = await this.tagService.getArticlesByTagId(Number(tagId));
+            res.status(200).json(article);
+        } catch (error) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
 }

@@ -72,4 +72,28 @@ export class TagService {
             throw new Error('Internal Server Error');
         }
     }
+
+    async getArticlesByTagId(tagId: number) {
+        try {
+            const article = await prismaClient.article.findMany({
+                where: {
+                    article_tags: {
+                        some: {
+                            tag_id: tagId
+                        }
+                    }
+                },
+                include: {
+                    article_tags: {
+                        include: {
+                            tag: true
+                        }
+                    }
+                }
+            })
+            return article
+        } catch(error) {
+            throw new Error('Internal Server Error')
+        }
+    }
 }

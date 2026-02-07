@@ -319,6 +319,6 @@ router.delete('/articles/:id/tags', articleController.removeTagsFromArticle);
  *       200:
  *         description: Lista de artigos com a tag especificada
  */
-router.get('/tags/:tagId/articles', articleController.getArticlesByTagId);
+router.get('/tags/:tagId/articles', tagController.getArticlesByTagId);
 
 export default router;
