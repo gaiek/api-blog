@@ -63,4 +63,36 @@ export class ArticleController {
             res.status(500).json({ message: 'Internal Server Error' });
         }
     }
+
+    addTagsToArticle = async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params;
+            const { tagIds } = req.body;
+            const updatedArticle = await this.articleService.addTagsToArticle(Number(id), tagIds);
+            res.status(200).json(updatedArticle);
+        } catch (error) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    removeTagsFromArticle = async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params;
+            const { tagIds } = req.body;
+            const updatedArticle = await this.articleService.removeTagsFromArticle(Number(id), tagIds);
+            res.status(200).json(updatedArticle);
+        } catch (error) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    getArticlesByTagId = async (req: Request, res: Response) => {
+        try {
+            const { tagId } = req.params;
+            const article = await this.articleService.getArticlesByTagId(Number(tagId));
+            res.status(200).json(article);
+        } catch (error) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
 }

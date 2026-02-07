@@ -23,5 +23,8 @@ router.post('/articles', articleController.createArticle);
 router.get('/articles/:id', articleController.getArticleById);
 router.put('/articles/:id', articleController.updateArticle);
 router.delete('/articles/:id', articleController.deleteArticle);
+router.put('/articles/:id/tags', articleController.addTagsToArticle);
+router.delete('/articles/:id/tags', articleController.removeTagsFromArticle);
+router.get('/tags/:tagId/articles', articleController.getArticlesByTagId);
 
 export default router;
