@@ -62,7 +62,9 @@ export class TagService {
     }
 
     async deleteTag(id: number) {
+        console.log('ESTOU SENDO CHAMADO PARA DELETAR NO SERVICE -->');
         try { 
+            console.log('ID PARA DELETAR -->', id);
             await prismaClient.tag.delete({
                 where: { id },
             });

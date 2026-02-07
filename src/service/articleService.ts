@@ -109,7 +109,7 @@ export class ArticleService {
         }
     }
 
-    async addTagToArticle(articleId: number, tagIds: number[]) {
+    async addTagsToArticle(articleId: number, tagIds: number[]) {
         try {
             await prismaClient.articleTag.createMany({
                 data: tagIds.map(tagId => ({
@@ -160,9 +160,9 @@ export class ArticleService {
         }
     }
 
-    async getArticleByTag(tagId: number) {
+    async getArticlesByTagId(tagId: number) {
         try {
-            const articles = await prismaClient.article.findMany({
+            const article = await prismaClient.article.findMany({
                 where: {
                     article_tags: {
                         some: {
@@ -178,7 +178,7 @@ export class ArticleService {
                     }
                 }
             })
-            return articles
+            return article
         } catch(error) {
             throw new Error('Internal Server Error')
         }

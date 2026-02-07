@@ -56,6 +56,7 @@ export class TagController {
     }
 
     deleteTag = async (req: Request, res: Response) => {
+        console.log('ESTOU SENDO CHAMADO PARA DELETAR NO CONTROLLER -->');
         try {
             const { id } = req.params;
             await this.tagService.deleteTag(Number(id));
