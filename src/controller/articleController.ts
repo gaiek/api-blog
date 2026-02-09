@@ -22,11 +22,9 @@ export class ArticleController {
             }
 
             const newArticle = await this.articleService.createArticle(title, content, tagIds);
-            console.log('passei pelo controller -->', newArticle);
             res.status(201).json(newArticle);
         } catch (error: any) {
-            console.error('error -->', error);
-            res.status(500).json({ message: 'Internal Server Error', error: process.env.NODE_ENV === 'development' ? error.message : undefined });
+            res.status(500).json({ message: 'Internal Server Error' });
         }
     }
 
