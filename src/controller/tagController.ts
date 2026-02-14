@@ -26,8 +26,7 @@ export class TagController {
             console.log('passei pelo controller -->', newTag);
             res.status(201).json(newTag);
         } catch (error: any) {
-            console.error('error -->', error);
-            res.status(500).json({ message: 'Internal Server Error', error: process.env.NODE_ENV === 'development' ? error.message : undefined });
+            res.status(500).json({ message: 'Internal Server Error' });
         }
     }
 

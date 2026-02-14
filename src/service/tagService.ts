@@ -22,16 +22,7 @@ export class TagService {
             });
             console.log('passei pelo service -->', newTag);
             return newTag;
-        } catch (error: any) {
-            console.log('error -->', error);
-            if (error.code) {
-                console.log('error message -->', error.message);
-                console.log('error code -->', error.code);
-            }
-            if (error.message) {
-                console.log('error message -->', error.message);
-                throw new Error(error.message);
-            }
+        } catch (error) {
             throw new Error('Internal Server Error');
         }
     }
