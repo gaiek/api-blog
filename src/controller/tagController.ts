@@ -5,7 +5,6 @@ export class TagController {
     constructor(private tagService: TagService) { }
 
     getAllTags = async (_: Request, res: Response) => {
-        console.log('ESTOU SENDO CHAMADO NO CONTROLLER -->');
         try {
             const tags = await this.tagService.getAllTags();
             res.status(200).json(tags);
@@ -23,7 +22,6 @@ export class TagController {
             }
 
             const newTag = await this.tagService.createTag(name);
-            console.log('passei pelo controller -->', newTag);
             res.status(201).json(newTag);
         } catch (error: any) {
             res.status(500).json({ message: 'Internal Server Error' });
@@ -55,7 +53,6 @@ export class TagController {
     }
 
     deleteTag = async (req: Request, res: Response) => {
-        console.log('ESTOU SENDO CHAMADO PARA DELETAR NO CONTROLLER -->');
         try {
             const { id } = req.params;
             await this.tagService.deleteTag(Number(id));

@@ -2,7 +2,7 @@
 
 API RESTful para gerenciamento de artigos e tags de um blog, desenvolvida com Node.js, TypeScript, Express e Prisma.
 
-## 📋 Índice
+## Índice
 
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação](#-instalação)
@@ -14,7 +14,7 @@ API RESTful para gerenciamento de artigos e tags de um blog, desenvolvida com No
 - [Testes](#-testes)
 - [Comandos Úteis](#-comandos-úteis)
 
-## 📦 Pré-requisitos
+## Pré-requisitos
 
 Antes de começar, certifique-se de ter instalado:
 
@@ -23,7 +23,7 @@ Antes de começar, certifique-se de ter instalado:
 - **Docker** e **Docker Compose**
 - **Git** 
 
-## 🔧 Instalação
+## Instalação
 
 1. **Clone o repositório:**
 
@@ -42,7 +42,7 @@ nvm use
 yarn
 ```
 
-## ⚙️ Configuração
+## Configuração
 
 ### 2. Iniciar o banco de dados
 
@@ -68,7 +68,7 @@ Gere o cliente Prisma baseado no schema:
 npx prisma generate
 ```
 
-## 🏃 Executando o Projeto
+## Executando o Projeto
 
 ### Modo Desenvolvimento
 
@@ -94,7 +94,7 @@ Isso irá compilar todos os arquivos TypeScript para JavaScript na pasta `dist/`
 yarn start
 ```
 
-## 📚 Documentação da API
+## Documentação da API
 
 A documentação interativa da API está disponível através do Swagger UI. Após iniciar o servidor, acesse:
 
@@ -102,7 +102,7 @@ A documentação interativa da API está disponível através do Swagger UI. Ap�
 http://localhost:3000/api-docs
 ```
 
-## 🧪 Testes
+## Testes
 
 Para executar os testes:
 
@@ -110,7 +110,7 @@ Para executar os testes:
 yarn test
 ```
 
-## 🔍 Comandos Úteis
+## Comandos Úteis
 
 ### Prisma
 

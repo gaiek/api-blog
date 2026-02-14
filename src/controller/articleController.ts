@@ -22,7 +22,6 @@ export class ArticleController {
             }
 
             const newArticle = await this.articleService.createArticle(title, content, tagIds);
-            console.log('passei pelo controller -->', newArticle);
             res.status(201).json(newArticle);
         } catch (error: any) {
             console.error('error -->', error);

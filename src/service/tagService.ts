@@ -4,7 +4,6 @@ import { prismaClient } from "../lib/database";
 export class TagService {
 
     async getAllTags() {
-        console.log('ESTOU SENDO CHAMADO NO SERVICE -->');
         try {
             const tags = await prismaClient.tag.findMany();
             return tags;
@@ -20,7 +19,6 @@ export class TagService {
                     name,
                 },
             });
-            console.log('passei pelo service -->', newTag);
             return newTag;
         } catch (error) {
             throw new Error('Internal Server Error');
@@ -53,9 +51,7 @@ export class TagService {
     }
 
     async deleteTag(id: number) {
-        console.log('ESTOU SENDO CHAMADO PARA DELETAR NO SERVICE -->');
         try { 
-            console.log('ID PARA DELETAR -->', id);
             await prismaClient.tag.delete({
                 where: { id },
             });
