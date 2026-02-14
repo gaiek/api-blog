@@ -41,11 +41,7 @@ export class ArticleService {
                 }
             });
             return newArticle;
-        } catch (error: any) {
-            if (error.message) {
-                console.log('error message -->', error.message);
-                throw new Error(error.message);
-            }
+        } catch (error) {
             throw new Error('Internal Server Error');
         }
     }
@@ -155,8 +151,8 @@ export class ArticleService {
                     }
                 }
             })
-        } catch (error: any) {
-            throw new Error(error.message || 'Internal service error')
+        } catch (error) {
+            throw new Error('Internal Server Error')
         }
     }
 }
